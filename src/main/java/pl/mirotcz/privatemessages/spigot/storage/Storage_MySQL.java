@@ -68,7 +68,7 @@ public class Storage_MySQL implements Storage {
          ps.executeUpdate();
          ps = conn.prepareStatement(this.sql3);
          ps.executeUpdate();
-         if (this.instance.getSettings().BUNGEE_CORD) {
+         if (this.instance.getSettings().BUNGEECORD) {
             ps = conn.prepareStatement(this.sql4);
             ps.executeUpdate();
             ps = conn.prepareStatement(this.sql5);

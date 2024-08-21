@@ -11,10 +11,10 @@ public class PlayerSettings {
    private int MESSAGE_NOTIFICATION_SOUND_NUMBER = 1;
    private boolean MESSAGE_NOTIFICATION_SOUND_ENABLED = true;
    private boolean MESSAGE_SPY_ENABLED = false;
-   private Set IGNORED_PLAYERS = new HashSet();
+   private Set<String> IGNORED_PLAYERS = new HashSet<>();
    private boolean PRIVATE_MESSAGES_ENABLED = true;
 
-   public void load(String player_name, int sound_number, boolean sound_enabled, boolean spy_enabled, Set ignored_players, boolean msg_enabled) {
+   public void load(String player_name, int sound_number, boolean sound_enabled, boolean spy_enabled, Set<String> ignored_players, boolean msg_enabled) {
       this.PLAYER_NAME = player_name;
       this.MESSAGE_NOTIFICATION_SOUND_NUMBER = sound_number;
       this.MESSAGE_NOTIFICATION_SOUND_ENABLED = sound_enabled;
@@ -64,11 +64,11 @@ public class PlayerSettings {
       });
    }
 
-   public Set getIgnoredPlayers() {
+   public Set<String> getIgnoredPlayers() {
       return this.IGNORED_PLAYERS;
    }
 
-   public synchronized void setIgnoredPlayers(Set value) {
+   public synchronized void setIgnoredPlayers(Set<String> value) {
       this.IGNORED_PLAYERS = value;
       Bukkit.getScheduler().runTask(PrivateMessages.get(), () -> {
          Bukkit.getPluginManager().callEvent(new PlayerSettingsModifyEvent(this));

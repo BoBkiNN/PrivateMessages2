@@ -4,7 +4,7 @@ import pl.mirotcz.privatemessages.bungee.utils.MainUtils;
 
 public class Utils {
    private MainUtils main_utils;
-   private PrivateMessages instance;
+   private final PrivateMessages instance;
 
    public Utils(PrivateMessages plugin) {
       this.instance = plugin;

@@ -3,64 +3,45 @@ package pl.mirotcz.privatemessages.spigot.utils;
 import java.util.*;
 
 public class StringUtils {
-    public static String getStringFromList(List list) {
+    public static String getStringFromList(List<String> list) {
         StringBuilder sb = new StringBuilder();
-        if (list == null) {
-            return sb.append("").toString();
-        } else if (list.isEmpty()) {
-            return sb.append("").toString();
-        } else {
-            Iterator it = list.iterator();
-
+        if (list != null && !list.isEmpty()) {
+            Iterator<String> it = list.iterator();
             while (it.hasNext()) {
-                sb.append((String) it.next());
+                sb.append(it.next());
                 if (it.hasNext()) {
                     sb.append(";");
                 }
             }
-
-            return sb.toString();
         }
+        return sb.toString();
     }
 
-    public static List getListFromString(String string) {
-        List list = new ArrayList();
+    public static List<String> getListFromString(String string) {
+        List<String> list = new ArrayList<>();
         if (string == null) {
             return list;
         } else if (string.isEmpty()) {
             return list;
         } else {
             String[] elements = string.split(";");
-            String[] var3 = elements;
-            int var4 = elements.length;
-
-            for (int var5 = 0; var5 < var4; ++var5) {
-                String element = var3[var5];
-                list.add(element);
-            }
-
+            list.addAll(Arrays.asList(elements));
             return list;
         }
     }
 
     public static String getStringFromSet(Set<String> set) {
         StringBuilder sb = new StringBuilder();
-        if (set == null) {
-            return sb.toString();
-        } else if (set.isEmpty()) {
-            return sb.toString();
-        } else {
+        if (set != null && !set.isEmpty()) {
             Iterator<String> it = set.iterator();
-
             while (it.hasNext()) {
-                sb.append((String) it.next());
+                sb.append(it.next());
                 if (it.hasNext()) {
                     sb.append(";");
                 }
             }
-
-            return sb.toString();
         }
+        return sb.toString();
     }
 
     public static Set<String> getSetFromString(String string) {

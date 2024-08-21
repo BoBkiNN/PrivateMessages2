@@ -8,9 +8,9 @@ import pl.mirotcz.privatemessages.Message;
 import pl.mirotcz.privatemessages.spigot.messaging.Messenger;
 
 public class NotifierTask {
-   private PrivateMessages instance;
+   private final PrivateMessages instance;
    private BukkitTask task = null;
-   private volatile ConcurrentLinkedQueue players_waiting_for_notification = new ConcurrentLinkedQueue();
+   private final ConcurrentLinkedQueue<String> players_waiting_for_notification = new ConcurrentLinkedQueue<>();
    private volatile boolean task_active = false;
 
    public NotifierTask(PrivateMessages plugin) {
@@ -21,24 +21,22 @@ public class NotifierTask {
       this.task_active = true;
       this.task = Bukkit.getScheduler().runTaskAsynchronously(this.instance, () -> {
          while(this.task_active) {
-            Iterator it = this.players_waiting_for_notification.iterator();
+            Iterator<String> it = this.players_waiting_for_notification.iterator();
 
             while(it.hasNext()) {
-               String player_name = (String)it.next();
+               String player_name = it.next();
                int count = 0;
-               Iterator var4 = this.instance.getManagers().getPendingMessagesManager().getPendingUnreadMessages().iterator();
 
-               while(var4.hasNext()) {
-                  Message m = (Message)var4.next();
-                  if (m.getRecipientName().equalsIgnoreCase(player_name)) {
-                     ++count;
-                  }
-               }
+                for (Message m : this.instance.getManagers().getPendingMessagesManager().getPendingUnreadMessages()) {
+                    if (m.getRecipientName().equalsIgnoreCase(player_name)) {
+                        ++count;
+                    }
+                }
 
                int stored_unread_messages = this.instance.getStorage().getUnreadMessages(player_name).size();
                count += stored_unread_messages;
                if (count > 0) {
-                  Messenger.send(Bukkit.getPlayer(player_name), (String)this.instance.getMessages().INFO_YOU_HAVE_UNREAD_MESSAGES.replaceAll("<number>", String.valueOf(count)));
+                  Messenger.send(Bukkit.getPlayer(player_name), this.instance.getMessages().INFO_YOU_HAVE_UNREAD_MESSAGES.replaceAll("<number>", String.valueOf(count)));
                }
 
                it.remove();

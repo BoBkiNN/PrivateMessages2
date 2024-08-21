@@ -60,9 +60,9 @@ public class Storage_SQLite implements Storage {
          ps.executeUpdate();
          ps = conn.prepareStatement(this.sql3);
          ps.executeUpdate();
-         this.close(conn, ps, (ResultSet)null);
+         this.close(conn, ps, null);
       } catch (SQLException var4) {
-         this.close(conn, ps, (ResultSet)null);
+         this.close(conn, ps, null);
          var4.printStackTrace();
       }
 

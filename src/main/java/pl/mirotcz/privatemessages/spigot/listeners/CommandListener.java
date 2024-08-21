@@ -33,14 +33,14 @@ public class CommandListener implements CommandExecutor {
    public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
       switch (command.getName().toLowerCase()) {
          case "message":
-            if (!this.instance.getSettings().BUNGEE_CORD || sender instanceof ConsoleCommandSender) {
+            if (!this.instance.getSettings().BUNGEECORD || sender instanceof ConsoleCommandSender) {
                Bukkit.getScheduler().runTaskAsynchronously(this.instance, () -> {
                   new MessageCommand(sender, args);
                });
             }
             break;
          case "reply":
-            if (!this.instance.getSettings().BUNGEE_CORD) {
+            if (!this.instance.getSettings().BUNGEECORD) {
                Bukkit.getScheduler().runTaskAsynchronously(this.instance, () -> {
                   new ReplyCommand(sender, args);
                });
@@ -52,7 +52,7 @@ public class CommandListener implements CommandExecutor {
             });
             break;
          case "pmclear":
-            if (!this.instance.getSettings().BUNGEE_CORD) {
+            if (!this.instance.getSettings().BUNGEECORD) {
                Bukkit.getScheduler().runTaskAsynchronously(this.instance, () -> {
                   new ClearCommand(sender, args);
                });
@@ -64,35 +64,35 @@ public class CommandListener implements CommandExecutor {
             });
             break;
          case "pmread":
-            if (!this.instance.getSettings().BUNGEE_CORD) {
+            if (!this.instance.getSettings().BUNGEECORD) {
                Bukkit.getScheduler().runTaskAsynchronously(this.instance, () -> {
                   new ReadCommand(sender, args);
                });
             }
             break;
          case "pmspy":
-            if (!this.instance.getSettings().BUNGEE_CORD) {
+            if (!this.instance.getSettings().BUNGEECORD) {
                Bukkit.getScheduler().runTaskAsynchronously(this.instance, () -> {
                   new SpyCommand(sender, args);
                });
             }
             break;
          case "pmignore":
-            if (!this.instance.getSettings().BUNGEE_CORD) {
+            if (!this.instance.getSettings().BUNGEECORD) {
                Bukkit.getScheduler().runTaskAsynchronously(this.instance, () -> {
                   new IgnoreCommand(sender, args);
                });
             }
             break;
          case "pmignored":
-            if (!this.instance.getSettings().BUNGEE_CORD) {
+            if (!this.instance.getSettings().BUNGEECORD) {
                Bukkit.getScheduler().runTaskAsynchronously(this.instance, () -> {
                   new IgnoredCommand(sender, args);
                });
             }
             break;
          case "pmtoggle":
-            if (!this.instance.getSettings().BUNGEE_CORD) {
+            if (!this.instance.getSettings().BUNGEECORD) {
                Bukkit.getScheduler().runTaskAsynchronously(this.instance, () -> {
                   new ToggleCommand(sender, args);
                });
@@ -118,7 +118,7 @@ public class CommandListener implements CommandExecutor {
    }
 
    public void registerTabCompleters() {
-      if (!this.instance.getSettings().BUNGEE_CORD) {
+      if (!this.instance.getSettings().BUNGEECORD) {
          this.instance.getCommand("message").setTabCompleter(new MessageTabCompleter());
          this.instance.getCommand("reply").setTabCompleter(new ReplyTabCompleter());
          this.instance.getCommand("pmread").setTabCompleter(new ReadTabCompleter());

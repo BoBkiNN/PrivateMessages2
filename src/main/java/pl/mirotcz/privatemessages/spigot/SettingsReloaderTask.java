@@ -8,7 +8,7 @@ import pl.mirotcz.privatemessages.spigot.data.PlayerSettings;
 import pl.mirotcz.privatemessages.spigot.managers.PlayerSettingsManager;
 
 public class SettingsReloaderTask {
-   private PrivateMessages instance;
+   private final PrivateMessages instance;
    private BukkitTask task = null;
    private volatile ConcurrentLinkedQueue players_waiting_for_reload = new ConcurrentLinkedQueue();
    private volatile boolean task_active = false;

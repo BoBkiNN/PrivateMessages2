@@ -1,7 +1,5 @@
 package pl.mirotcz.privatemessages.spigot;
 
-import java.io.File;
-import java.io.InputStream;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,8 +15,7 @@ import pl.mirotcz.privatemessages.spigot.storage.Storage_MySQL;
 import pl.mirotcz.privatemessages.spigot.vanish.Vanish;
 
 public final class PrivateMessages extends JavaPlugin {
-   private Vanish vanish = null;
-   private static PrivateMessages instance;
+    private static PrivateMessages instance;
    private Managers managers;
    private volatile MessagesInventory global_history_inv = null;
    private volatile long last_global_history_inv_gen = 0L;
@@ -32,20 +29,20 @@ public final class PrivateMessages extends JavaPlugin {
       this.managers = new Managers(instance);
       this.managers.load();
       Messenger.setPrefix(this.managers.getMessagesManager().PLUGIN_PREFIX);
-      this.vanish = this.managers.getVanishManager().getVanish();
+       Vanish vanish = this.managers.getVanishManager().getVanish();
       if (!this.managers.getVanishManager().isVanishSupported()) {
          Messenger.sendConsole("Vanish plugin not found! Vanish support disabled.");
       } else {
-         this.getServer().getPluginManager().registerEvents((Listener)this.vanish, instance);
+         this.getServer().getPluginManager().registerEvents((Listener) vanish, instance);
       }
 
       this.startCacheTask();
-      if (instance.getSettings().BUNGEE_CORD) {
+      if (instance.getSettings().BUNGEECORD) {
          this.bungee_vanish_task = new BungeeVanishNotifierTask(instance);
          this.bungee_vanish_task.startTask();
       }
 
-      if (this.getSettings().BUNGEE_CORD && this.getStorage() instanceof Storage_MySQL) {
+      if (this.getSettings().BUNGEECORD && this.getStorage() instanceof Storage_MySQL) {
          this.settings_reloader_task = new SettingsReloaderTask(instance);
          this.settings_reloader_task.start();
       }
@@ -111,16 +108,6 @@ public final class PrivateMessages extends JavaPlugin {
       return this.managers.getVanishManager().getVanish();
    }
 
-   private void moveSoundFiles() {
-      File folder = new File(this.getDataFolder().getAbsolutePath() + "/sound_files");
-      if (!folder.exists()) {
-         folder.mkdirs();
-      }
-
-      InputStream is = this.getResource("sounds.1.7-1.8.yml");
-      new File(folder.getAbsolutePath(), "sounds.1.7-1.8.yml");
-   }
-
    public static String checkVersion() {
       try {
           return Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
@@ -147,7 +134,7 @@ public final class PrivateMessages extends JavaPlugin {
 
    public void startCacheTask() {
       this.cache_task = Bukkit.getScheduler().runTaskTimer(instance, () -> {
-         if (System.currentTimeMillis() - this.getLastGlobalHistoryInvGen() >= (long)(this.getSettings().GLOBAL_HISTORY_CACHE_TIME_SECONDS * 1000)) {
+         if (System.currentTimeMillis() - this.getLastGlobalHistoryInvGen() >= (this.getSettings().GLOBAL_HISTORY_CACHE_TIME_SECONDS * 1000L)) {
             this.clearMessagesCache();
          }
 
@@ -163,7 +150,7 @@ public final class PrivateMessages extends JavaPlugin {
 
    public void clearMessagesCache() {
       if (this.getGlobalHistoryInv() != null) {
-         this.setGlobalHistoryInv((MessagesInventory)null);
+         this.setGlobalHistoryInv(null);
       }
 
    }

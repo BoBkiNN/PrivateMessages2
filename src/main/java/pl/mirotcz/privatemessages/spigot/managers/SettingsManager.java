@@ -22,7 +22,7 @@ public class SettingsManager {
    public boolean SPY_IN_CONSOLE = false;
    public Material SOUND_HELP_ITEM_MATERIAL = null;
    public int GLOBAL_HISTORY_CACHE_TIME_SECONDS = 600;
-   public boolean BUNGEE_CORD = false;
+   public boolean BUNGEECORD = false;
    public boolean METRICS = true;
    public boolean NOTIFY_UNREAD_MESSAGES_AFTER_JOIN = true;
    public boolean NOTIFY_UNREAD_MESSAGES_AFTER_UNVANISH = true;
@@ -44,7 +44,7 @@ public class SettingsManager {
       this.MESSAGE_SAVE_INTERVAL_SECONDS = config.getConfig().getInt("MessagesSaveIntervalSeconds");
       this.MAX_HISTORY_MESSAGES_PER_SECOND = config.getConfig().getInt("MaxHistoryMessagesPerSecond");
       this.GLOBAL_HISTORY_CACHE_TIME_SECONDS = config.getConfig().getInt("GlobalHistoryCacheTimeSeconds");
-      this.BUNGEE_CORD = config.getConfig().getBoolean("BungeeCord");
+      this.BUNGEECORD = config.getConfig().getBoolean("BungeeCord");
       this.METRICS = config.getConfig().getBoolean("Metrics");
       this.NOTIFY_UNREAD_MESSAGES_AFTER_JOIN = config.getConfig().getBoolean("NotifyUnreadMessagesAfterJoin");
       this.NOTIFY_UNREAD_MESSAGES_AFTER_UNVANISH = config.getConfig().getBoolean("NotifyUnreadMessagesAfterUnvanish");

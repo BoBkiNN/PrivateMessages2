@@ -14,7 +14,7 @@ public class Managers {
    private MenuManager menuManager;
    private PendingMessagesManager pendingMessagesManager;
    private PlayerTempDataManager playerTempDataManager;
-   private PrivateMessages instance;
+   private final PrivateMessages instance;
 
    public Managers(PrivateMessages plugin) {
       this.instance = plugin;

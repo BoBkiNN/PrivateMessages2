@@ -17,12 +17,10 @@ import java.util.*;
 
 public class SoundInventory implements Menu {
     private List<Inventory> pages = new ArrayList<>();
-    private final List<Material> discs;
     private final PrivateMessages instance;
 
     public SoundInventory(PrivateMessages plugin) {
         this.instance = plugin;
-        this.discs = MaterialUtils.getMusicDiscsMaterials();
     }
 
     public void load() {
@@ -44,7 +42,7 @@ public class SoundInventory implements Menu {
 
         while (it.hasNext()) {
             SoundData sound = it.next();
-            ItemStack item = new ItemStack(this.discs.get(MainUtils.getRandomInt(0, this.discs.size() - 1)));
+            ItemStack item = new ItemStack(MaterialUtils.MUSIC_DISCS.get(MainUtils.getRandomInt(0, MaterialUtils.MUSIC_DISCS.size() - 1)));
             ItemMeta meta = item.getItemMeta();
             List<String> lore = MainUtils.getColorfulStringList(this.instance.getMessages().INV_SOUND_ITEM_LORE);
             List<String> finalLore = new ArrayList<>(lore);
@@ -62,18 +60,13 @@ public class SoundInventory implements Menu {
             item.setItemMeta(meta);
             inv.setItem(count - 1, item);
             int finalAllCount = allCount;
-            Caller leftClick = (player) -> {
-                Bukkit.getScheduler().runTask(this.instance, () -> {
-                    this.instance.getManagers().getPlayerSettingsManager().getPlayerSettings(player.getName()).setMessageNotificationSoundNumber(finalAllCount);
-                    player.closeInventory();
-                    Messenger.send(player, this.instance.getMessages().INFO_SOUND_CHANGED);
-                });
-            };
-            Caller rightClick = (player) -> {
-                Bukkit.getScheduler().runTask(this.instance, () -> {
-                    player.playSound(player.getLocation(), sound.getSound(), sound.getVolume(), sound.getPitch());
-                });
-            };
+            Caller leftClick = (player) -> Bukkit.getScheduler().runTask(this.instance, () -> {
+                this.instance.getManagers().getPlayerSettingsManager().getPlayerSettings(player.getName()).setMessageNotificationSoundNumber(finalAllCount);
+                player.closeInventory();
+                Messenger.send(player, this.instance.getMessages().INFO_SOUND_CHANGED);
+            });
+            Caller rightClick = (player) -> Bukkit.getScheduler().runTask(this.instance,
+                    () -> player.playSound(player.getLocation(), sound.getSound(), sound.getVolume(), sound.getPitch()));
             leftPageCallers.put(count - 1, leftClick);
             rightPageCallers.put(count - 1, rightClick);
             ItemStack nextitem;
@@ -89,11 +82,7 @@ public class SoundInventory implements Menu {
                 pagemeta.setLore(MainUtils.getColorfulStringList(pageitemlore));
                 nextitem.setItemMeta(pagemeta);
                 int finalPagesCount1 = pagesCount;
-                left = (player) -> {
-                    Bukkit.getScheduler().runTask(this.instance, () -> {
-                        player.openInventory(this.get(finalPagesCount1 - 1));
-                    });
-                };
+                left = (player) -> Bukkit.getScheduler().runTask(this.instance, () -> player.openInventory(this.get(finalPagesCount1 - 1)));
                 leftPageCallers.put(44, left);
                 inv.setItem(44, nextitem);
             }
@@ -114,11 +103,7 @@ public class SoundInventory implements Menu {
                 pagemeta.setLore(MainUtils.getColorfulStringList(pageitemlore));
                 nextitem.setItemMeta(pagemeta);
                 int finalPagesCount = pagesCount;
-                left = (player) -> {
-                    Bukkit.getScheduler().runTask(this.instance, () -> {
-                        player.openInventory(this.get(finalPagesCount + 1));
-                    });
-                };
+                left = (player) -> Bukkit.getScheduler().runTask(this.instance, () -> player.openInventory(this.get(finalPagesCount + 1)));
                 leftPageCallers.put(53, left);
                 inv.setItem(53, nextitem);
                 this.pages.add(inv);

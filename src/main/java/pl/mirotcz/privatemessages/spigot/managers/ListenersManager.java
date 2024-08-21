@@ -89,7 +89,7 @@ public class ListenersManager {
       Bukkit.getPluginManager().registerEvents(this.inventoryClickListener, this.instance);
       Bukkit.getPluginManager().registerEvents(this.playerSettingsModifyListener, this.instance);
       Bukkit.getPluginManager().registerEvents(this.privateMessageListener, this.instance);
-      if (this.instance.getSettings().BUNGEE_CORD) {
+      if (this.instance.getSettings().BUNGEECORD) {
          this.pluginMessagesListener.load();
       }
 
