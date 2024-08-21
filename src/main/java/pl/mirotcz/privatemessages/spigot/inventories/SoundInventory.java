@@ -69,22 +69,21 @@ public class SoundInventory implements Menu {
                     () -> player.playSound(player.getLocation(), sound.getSound(), sound.getVolume(), sound.getPitch()));
             leftPageCallers.put(count - 1, leftClick);
             rightPageCallers.put(count - 1, rightClick);
-            ItemStack nextitem;
+            ItemStack nextItem;
             ItemMeta pagemeta;
-            ArrayList<String> pageitemlore;
             Caller left;
             if ((!it.hasNext() || count == 44) && pagesCount > 1) {
-                nextitem = new ItemStack(Material.ARROW);
-                pagemeta = nextitem.getItemMeta();
+                nextItem = new ItemStack(Material.ARROW);
+                pagemeta = nextItem.getItemMeta();
                 pagemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', this.instance.getMessages().INV_PREVIOUS_PAGE));
-                pageitemlore = new ArrayList<>();
-                pageitemlore.add("" + (pagesCount - 1));
-                pagemeta.setLore(MainUtils.getColorfulStringList(pageitemlore));
-                nextitem.setItemMeta(pagemeta);
+                ArrayList<String> pageItemLore = new ArrayList<>();
+                pageItemLore.add("" + (pagesCount - 1));
+                pagemeta.setLore(MainUtils.getColorfulStringList(pageItemLore));
+                nextItem.setItemMeta(pagemeta);
                 int finalPagesCount1 = pagesCount;
                 left = (player) -> Bukkit.getScheduler().runTask(this.instance, () -> player.openInventory(this.get(finalPagesCount1 - 1)));
                 leftPageCallers.put(44, left);
-                inv.setItem(44, nextitem);
+                inv.setItem(44, nextItem);
             }
 
             if (!it.hasNext()) {
@@ -95,17 +94,17 @@ public class SoundInventory implements Menu {
             }
 
             if (count == 44) {
-                nextitem = new ItemStack(Material.ARROW);
-                pagemeta = nextitem.getItemMeta();
+                nextItem = new ItemStack(Material.ARROW);
+                pagemeta = nextItem.getItemMeta();
                 pagemeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', this.instance.getMessages().INV_NEXT_PAGE));
-                pageitemlore = new ArrayList<>();
-                pageitemlore.add("" + (pagesCount + 1));
-                pagemeta.setLore(MainUtils.getColorfulStringList(pageitemlore));
-                nextitem.setItemMeta(pagemeta);
+                ArrayList<String> pageItemLore = new ArrayList<>();
+                pageItemLore.add("&6" + (pagesCount + 1));
+                pagemeta.setLore(MainUtils.getColorfulStringList(pageItemLore));
+                nextItem.setItemMeta(pagemeta);
                 int finalPagesCount = pagesCount;
                 left = (player) -> Bukkit.getScheduler().runTask(this.instance, () -> player.openInventory(this.get(finalPagesCount + 1)));
                 leftPageCallers.put(53, left);
-                inv.setItem(53, nextitem);
+                inv.setItem(53, nextItem);
                 this.pages.add(inv);
                 leftClickCallers.put(inv, leftPageCallers);
                 rightClickCallers.put(inv, rightPageCallers);
@@ -144,7 +143,7 @@ public class SoundInventory implements Menu {
     }
 
     public Inventory get(int page) {
-        return this.pages.size() >= page ? (Inventory) this.pages.get(page - 1) : null;
+        return this.pages.size() >= page ? this.pages.get(page - 1) : null;
     }
 
     public List<Inventory> getPages() {
