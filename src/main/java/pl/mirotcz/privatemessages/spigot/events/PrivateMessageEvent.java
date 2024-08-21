@@ -6,7 +6,7 @@ import pl.mirotcz.privatemessages.Message;
 
 public class PrivateMessageEvent extends Event {
    private static final HandlerList HANDLERS = new HandlerList();
-   private Message message = null;
+   private final Message message;
 
    public PrivateMessageEvent(Message msg) {
       this.message = msg;

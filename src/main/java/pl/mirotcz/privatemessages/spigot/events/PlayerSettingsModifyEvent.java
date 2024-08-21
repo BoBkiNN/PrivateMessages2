@@ -6,7 +6,7 @@ import pl.mirotcz.privatemessages.spigot.data.PlayerSettings;
 
 public class PlayerSettingsModifyEvent extends Event {
    private static final HandlerList HANDLERS = new HandlerList();
-   private PlayerSettings settings = null;
+   private final PlayerSettings settings;
 
    public PlayerSettingsModifyEvent(PlayerSettings settings) {
       this.settings = settings;
