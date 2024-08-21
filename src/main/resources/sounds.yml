@@ -1,0 +1,69 @@
+# You may need to delete/rename some sounds if you're running older versions. Default values are guaranteed to work with 1.13-1.14
+1:
+  SoundName: ENTITY_PLAYER_LEVELUP
+  Volume: 1
+  Pitch: 0.6
+2:
+  SoundName: ENTITY_PLAYER_LEVELUP
+  Volume: 1
+  Pitch: 1.0
+3:
+  SoundName: ENTITY_PLAYER_LEVELUP
+  Volume: 1
+  Pitch: 1.2
+4:
+  SoundName: ENTITY_PLAYER_LEVELUP
+  Volume: 1
+  Pitch: 1.5
+5:
+  SoundName: ENTITY_PLAYER_LEVELUP
+  Volume: 1
+  Pitch: 1.8
+6:
+  SoundName: ENTITY_BAT_HURT
+  Volume: 1
+  Pitch: 1.0
+7:
+  SoundName: ENTITY_BAT_HURT
+  Volume: 1
+  Pitch: 0.5
+8:
+  SoundName: ENTITY_SHEEP_HURT
+  Volume: 1
+  Pitch: 1.5
+9:
+  SoundName: ENTITY_PIG_DEATH
+  Volume: 1
+  Pitch: 1.5
+10:
+  SoundName: ENTITY_ENDERMAN_TELEPORT
+  Volume: 1
+  Pitch: 0.7
+11:
+  SoundName: ENTITY_PARROT_AMBIENT
+  Volume: 1
+  Pitch: 0.5
+12:
+  SoundName: ENTITY_GENERIC_EXPLODE
+  Volume: 1
+  Pitch: 1.0
+13:
+  SoundName: ENTITY_BLAZE_AMBIENT
+  Volume: 1
+  Pitch: 1.0
+14:
+  SoundName: ENTITY_CHICKEN_HURT
+  Volume: 1
+  Pitch: 1.0
+15:
+  SoundName: ENTITY_GHAST_SCREAM
+  Volume: 1
+  Pitch: 1.0
+16:
+  SoundName: ENTITY_WITHER_SHOOT
+  Volume: 1
+  Pitch: 0.8
+17:
+  SoundName: BLOCK_NOTE_BLOCK_PLING
+  Volume: 1
+  Pitch: 1.0

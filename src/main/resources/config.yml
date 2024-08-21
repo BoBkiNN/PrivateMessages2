@@ -1,0 +1,21 @@
+BungeeCord: false
+MessagesHistory:
+    DateFormat: "MM.dd.yyyy HH:mm:ss"
+    TimeZone: "Europe/Warsaw"
+AllowSendingMessagesToSelf: true
+AllowSendingMessagesToOfflinePlayers: true
+NotifyUnreadMessagesAfterJoin: true
+NotifyUnreadMessagesAfterUnvanish: true
+SpyInConsole: false
+SoundHelpItem: PAPER
+MessagesSaveIntervalSeconds: 10
+MaxHistoryMessagesPerSecond: 5000
+GlobalHistoryCacheTimeSeconds: 600 # Not recommended to set this lower
+Storage:
+    type: sqlite
+    hostname: localhost
+    user:
+    password:
+    database:
+    port:
+Metrics: true

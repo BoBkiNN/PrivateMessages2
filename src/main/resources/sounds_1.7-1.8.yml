@@ -1,0 +1,65 @@
+# You may need to delete some sounds if you're running version older than 1.12 e.g. parrot sound.
+1:
+  SoundName: LEVEL_UP
+  Volume: 1
+  Pitch: 0.6
+2:
+  SoundName: LEVEL_UP
+  Volume: 1
+  Pitch: 1.0
+3:
+  SoundName: LEVEL_UP
+  Volume: 1
+  Pitch: 1.2
+4:
+  SoundName: LEVEL_UP
+  Volume: 1
+  Pitch: 1.5
+5:
+  SoundName: LEVEL_UP
+  Volume: 1
+  Pitch: 1.8
+6:
+  SoundName: BAT_HURT
+  Volume: 1
+  Pitch: 1.0
+7:
+  SoundName: BAT_HURT
+  Volume: 1
+  Pitch: 0.5
+8:
+  SoundName: HURT_FLESH
+  Volume: 1
+  Pitch: 1.0
+9:
+  SoundName: PIG_DEATH
+  Volume: 1
+  Pitch: 1.5
+10:
+  SoundName: ENDERMAN_TELEPORT
+  Volume: 1
+  Pitch: 0.7
+11:
+  SoundName: EXPLODE
+  Volume: 1
+  Pitch: 1.0
+12:
+  SoundName: BLAZE_BREATH
+  Volume: 1
+  Pitch: 1.0
+13:
+  SoundName: CHICKEN_HURT
+  Volume: 1
+  Pitch: 1.0
+14:
+  SoundName: GHAST_SCREAM
+  Volume: 1
+  Pitch: 1.0
+15:
+  SoundName: WITHER_SHOOT
+  Volume: 1
+  Pitch: 0.8
+16:
+  SoundName: NOTE_PLING
+  Volume: 1
+  Pitch: 1.0

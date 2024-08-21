@@ -1,0 +1,53 @@
+name: PrivateMessages
+main: pl.mirotcz.privatemessages.bungee.PrivateMessages
+author: MiroTcz
+version: ${project.version}
+softDepends: [PremiumVanish]
+commands:
+    message:
+        usage: /<command>
+        description: Message.
+        aliases: [m, tell, whisper, pm, t, w, msg]
+        permission: pm.message
+        permission-message: §6§l[§f§lPM§6§l] §fYou don't have permission.
+    reply:
+        usage: /<command>
+        description: Reply.
+        aliases: [r]
+        permission: pm.reply
+        permission-message: §6§l[§f§lPM§6§l] §fYou don't have permission.
+    pmignore:
+        usage: /<command>
+        description: Ignore.
+        permission: pm.ignore
+        permission-message: §6§l[§f§lPM§6§l] §fYou don't have permission.
+    pmignored:
+        usage: /<command>
+        description: Ignored list.
+        permission: pm.ignore
+        permission-message: §6§l[§f§lPM§6§l] §fYou don't have permission.
+    pmread:
+        usage: /<command>
+        description: Read offline message.
+        permission: pm.read
+        permission-message: §6§l[§f§lPM§6§l] §fYou don't have permission.
+    pmclear:
+        usage: /<command>
+        description: Clear offline message.
+        permission: pm.clear
+        permission-message: §6§l[§f§lPM§6§l] §fYou don't have permission.
+    pmspy:
+        usage: /<command>
+        description: SocialSpy.
+        permission: pm.spy
+        permission-message: §6§l[§f§lPM§6§l] §fYou don't have permission.
+    pmtoggle:
+        usage: /<command>
+        description: Turn messages on/off.
+        permission: pm.toggle
+        permission-message: §6§l[§f§lPM§6§l] §fYou don't have permission.
+    pmreload:
+        usage: /<command>
+        description: Reload plugin command.
+        permission: pm.reload
+        permission-message: §6§l[§f§lPM§6§l] §fYou don't have permission.

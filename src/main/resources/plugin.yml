@@ -1,0 +1,80 @@
+name: PrivateMessages
+main: pl.mirotcz.privatemessages.spigot.PrivateMessages
+version: ${project.version}
+api-version: 1.13
+author: MiroTcz
+description: "Messaging plugin with cool & useful features"
+softdepend: [SuperVanish, VanishNoPacket, PremiumVanish, Essentials, Vault]
+permissions:
+    pm.ignore:
+      default: op
+    pm.sound:
+      default: op
+    pm.history:
+      default: op
+    pm.admin:
+      default: op
+    pm.message:
+      default: op
+    pm.message.ignored:
+      default: op
+    pm.message.disabled:
+      default: op
+    pm.message.vanished:
+      default: op
+    pm.clear:
+      default: op
+    pm.read:
+      default: op
+    pm.reply:
+      default: op
+    pm.reply.ignored:
+      default: op
+    pm.reply.disabled:
+      default: op
+    pm.reply.vanished:
+      default: op
+    pm.spy:
+      default: op
+    pm.toggle:
+      default: op
+commands:
+    message:
+        usage: /<command>
+        description: Message.
+        aliases: [m, tell, whisper, pm, t, w, msg]
+    reply:
+        usage: /<command>
+        description: Reply.
+        aliases: [r]
+    privatemessages:
+        usage: /<command>
+        description: Main command.
+        aliases: [pmsg]
+    pmignore:
+        usage: /<command>
+        description: Ignore.
+    pmignored:
+        usage: /<command>
+        description: Ignore list.
+    pmread:
+        usage: /<command>
+        description: Read offline message.
+    pmclear:
+        usage: /<command>
+        description: Clear offline message.
+    pmsound:
+        usage: /<command>
+        description: Change sound preferences.
+    pmhistory:
+        usage: /<command> [arg1] [arg2]
+        description: View messages history.
+    pmspy:
+        usage: /<command>
+        description: SocialSpy.
+    pmtoggle:
+        usage: /<command>
+        description: Turn messages on/off.
+    pmreload:
+        usage: /<command>
+        description: Reload plugin command.
