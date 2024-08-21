@@ -95,7 +95,7 @@ public class MessageSending {
             recipient.playSound(recipient.getLocation(), soundData.getSound(), soundData.getVolume(), soundData.getPitch());
             PlayerTempData tempData = instance.getManagers().getPlayerTempDataManger().getData(recipient);
             if (!tempData.hasReceivedPmSoundTip()) {
-               Messenger.send(recipient, (String)instance.getMessages().INFO_SOUND_CHANGE_TIP);
+               Messenger.send(recipient, instance.getMessages().INFO_SOUND_CHANGE_TIP);
                tempData.setReceivedPmSoundTip(true);
             }
          }
@@ -117,7 +117,7 @@ public class MessageSending {
             player.playSound(player.getLocation(), soundData.getSound(), soundData.getVolume(), soundData.getPitch());
             PlayerTempData tempData = instance.getManagers().getPlayerTempDataManger().getData(player);
             if (!tempData.hasReceivedPmSoundTip()) {
-               Messenger.send(player, (String)instance.getMessages().INFO_SOUND_CHANGE_TIP);
+               Messenger.send(player, instance.getMessages().INFO_SOUND_CHANGE_TIP);
                tempData.setReceivedPmSoundTip(true);
             }
          }
